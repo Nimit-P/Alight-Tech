@@ -37,25 +37,61 @@
     html, body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
   </style>
 </head>
-<body class="bg-white text-ink-800">
+  <body class="bg-white text-ink-800">
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img id="logo" src="assets/logo.png" alt="Alight Technologies" class="h-8 w-auto" />
-        <span class="sr-only">Alight Technologies</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="#services" class="hover:text-primary">Services</a>
-        <a href="#case" class="hover:text-primary">Case Study</a>
-        <a href="#about" class="hover:text-primary">About</a>
-        <a href="#careers" class="hover:text-primary">Careers</a>
-        <a href="#contact" class="hover:text-primary">Contact</a>
-      </nav>
-      <a id="primaryCtaHeader" href="#contact" class="inline-flex items-center rounded-md bg-primary px-4 py-2 text-white text-sm font-semibold shadow-sm hover:bg-primary.dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">Get Started</a>
-    </div>
-  </header>
+  <header>
+    <nav id="siteNav" data-state="" class="fixed z-20 w-full pt-2">
+      <div id="navOuter" class="mx-auto max-w-7xl rounded-3xl px-6 transition-all duration-300 lg:px-12">
+        <div id="navInner" class="relative flex flex-wrap items-center justify-between gap-6 py-3 duration-200 lg:gap-0 lg:py-6">
+          <div class="flex w-full items-center justify-between gap-12 lg:w-auto">
+            <a href="/" aria-label="home" class="flex items-center space-x-2">
+              <img id="logo" src="assets/logo.png" alt="Alight Technologies" class="h-8 w-auto" />
+              <span class="sr-only">Alight Technologies</span>
+            </a>
 
+            <button id="menuToggle" aria-label="Open Menu" class="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden">
+              <!-- Menu icon -->
+              <svg class="menu-icon m-auto h-6 w-6 transition duration-200 data-[active=true]:rotate-180 data-[active=true]:scale-0 data-[active=true]:opacity-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="4" x2="20" y1="6" y2="6"/>
+                <line x1="4" x2="20" y1="12" y2="12"/>
+                <line x1="4" x2="20" y1="18" y2="18"/>
+              </svg>
+              <!-- Close icon -->
+              <svg class="close-icon absolute inset-0 m-auto h-6 w-6 -rotate-180 scale-0 opacity-0 transition duration-200 data-[active=true]:rotate-0 data-[active=true]:scale-100 data-[active=true]:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+
+            <div class="hidden lg:block">
+              <ul class="flex gap-8 text-sm">
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>Features</span></a></li>
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>Solution</span></a></li>
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>Pricing</span></a></li>
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>About</span></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="navMenu" class="mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border bg-white p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none">
+            <div class="lg:hidden">
+              <ul class="space-y-6 text-base">
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>Features</span></a></li>
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>Solution</span></a></li>
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>Pricing</span></a></li>
+                <li><a href="#link" class="text-ink-600 hover:text-ink-900 block duration-150"><span>About</span></a></li>
+              </ul>
+            </div>
+            <div class="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+              <a href="#" class="inline-flex items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-ink-800 hover:bg-gray-50">Login</a>
+              <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary.dark">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
   <!-- Hero -->
   <section id="hero" class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-primary.light/60 to-transparent pointer-events-none"></div>
@@ -184,6 +220,55 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      const nav = document.getElementById('siteNav');
+      const navOuter = document.getElementById('navOuter');
+      const navInner = document.getElementById('navInner');
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+
+      function setMenuState(active){
+        if (!nav || !navMenu) return;
+        nav.setAttribute('data-state', active ? 'active' : '');
+        if (active) {
+          navMenu.classList.remove('hidden');
+        } else {
+          navMenu.classList.add('hidden');
+        }
+        if (menuIcon) menuIcon.setAttribute('data-active', active ? 'true' : 'false');
+        if (closeIcon) closeIcon.setAttribute('data-active', active ? 'true' : 'false');
+      }
+
+      let open = false;
+      if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+          open = !open;
+          setMenuState(open);
+          menuToggle.setAttribute('aria-label', open ? 'Close Menu' : 'Open Menu');
+        });
+      }
+
+      function onScroll(){
+        if (!navOuter || !navInner) return;
+        const scrolled = window.scrollY > 50;
+        if (scrolled) {
+          navOuter.classList.add('bg-white/60','backdrop-blur-2xl');
+          navInner.classList.add('lg:py-4');
+          navInner.classList.remove('lg:py-6');
+        } else {
+          navOuter.classList.remove('bg-white/60','backdrop-blur-2xl');
+          navInner.classList.add('lg:py-6');
+          navInner.classList.remove('lg:py-4');
+        }
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 
   <script src="content/home.js"></script>
   <script src="scripts/main.js"></script>
