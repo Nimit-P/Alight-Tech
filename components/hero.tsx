@@ -8,10 +8,10 @@ export default function Hero() {
         
         <div className="text-accent-foreground space-y-3 border flex flex-col items-center md:items-start">
           <h1 className="text-5xl md:text-6xl font-bold leading-12 md:leading-tight">
-            Card stacks have never looked so good
+            Simplifying Modernization
           </h1> 
           <p className="text-xl text-gray-400">
-            Just look at it go!
+            Our tailored, experience-focused solutions span a diverse range of services. We enable organizations to achieve measurable transformation and accelerate success by nearly 80%.
           </p>
         </div>
 
