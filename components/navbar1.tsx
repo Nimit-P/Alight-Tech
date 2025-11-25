@@ -54,7 +54,7 @@ interface Navbar1Props {
 const Navbar1 = ({
   logo = {
     url: "#",
-    src: "logo.png",
+    src: "Logo.png",
     alt: "logo",
     title: "",
   },
