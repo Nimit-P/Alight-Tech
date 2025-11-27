@@ -1,13 +1,34 @@
+"use client";
+
 import Hero from "@/components/hero";
 import { Navbar1 } from "@/components/navbar1";
-import Aboutus from "@/components/About us";
-import Image from "next/image";
+import { HeroHighlight , Highlight } from "@/components/ui/about-us";
+import { motion } from "motion/react";
 
 export default function Home() {
   return (
-      <>
-          <Navbar1/>
-          <Hero/>
-      </>
+    <>
+      <Navbar1 />
+      <Hero />
+        <HeroHighlight className="px-6 py-20">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: [20, -5, 0] }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto"
+        >
+          <Highlight className="text-black dark:text-white">
+            Why Choose Alight Technologies?
+          </Highlight>
+
+          <span className="block mt-4 text-lg md:text-xl font-normal text-neutral-700 dark:text-neutral-300">
+            At Alight Technologies, we embrace people, process and technology, like no one else! 
+            We believe in developing a community of bright minds who will break the barriers 
+            of stagnancy in technology and provide new outcomes that will open new frontiers 
+            of innovation! Our exceptional services will connect you with technology like never before!
+          </span>
+        </motion.h1>
+      </HeroHighlight>
+    </>
   );
 }
