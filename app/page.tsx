@@ -3,6 +3,8 @@
 import Hero from "@/components/hero";
 import { Navbar1 } from "@/components/navbar1";
 import { HeroHighlight , Highlight } from "@/components/ui/about-us";
+import { Blog7 } from "@/components/blog7";
+import { Badge } from "@/components/ui/badge";
 import { motion } from "motion/react";
 
 export default function Home() {
@@ -29,6 +31,7 @@ export default function Home() {
           </span>
         </motion.h1>
       </HeroHighlight>
-    </>
+      <Blog7/>    
+    </> 
   );
 }

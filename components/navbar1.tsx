@@ -121,10 +121,10 @@ const Navbar1 = ({
       url: "#",
     },
   ],
-  auth = {
+/*  auth = {
     login: { title: "Login", url: "#" },
     signup: { title: "Sign up", url: "#" },
-  },
+  },*/
 }: Navbar1Props) => {
   return (
     <section className="py-4">
@@ -190,15 +190,6 @@ const Navbar1 = ({
                   >
                     {menu.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
-
-                  <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline">
-                      <a href={auth.login.url}>{auth.login.title}</a>
-                    </Button>
-                    <Button asChild>
-                      <a href={auth.signup.url}>{auth.signup.title}</a>
-                    </Button>
-                  </div>
                 </div>
               </SheetContent>
             </Sheet>
