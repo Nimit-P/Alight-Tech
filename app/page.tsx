@@ -5,14 +5,18 @@ import { Navbar1 } from "@/components/navbar1";
 import { HeroHighlight , Highlight } from "@/components/ui/about-us";
 import { Blog7 } from "@/components/blog7";
 import { Badge } from "@/components/ui/badge";
+import { Team6 } from "@/components/ui/team6";
+import { Cta11 } from "@/components/cta11";
+import { Footer2 } from "@/components/footer2";
 import { motion } from "motion/react";
+
 
 export default function Home() {
   return (
     <>
       <Navbar1 />
       <Hero />
-        <HeroHighlight className="px-6 py-20">
+        <HeroHighlight className="px-6 py-4">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: [20, -5, 0] }}
@@ -32,6 +36,9 @@ export default function Home() {
         </motion.h1>
       </HeroHighlight>
       <Blog7/>    
+      <Team6/>
+      <Cta11/>
+      <Footer2/>
     </> 
   );
 }

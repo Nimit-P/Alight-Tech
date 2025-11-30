@@ -1,7 +1,8 @@
 import { ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+//import { Button } from "@/components/ui/button";
+import { Button } from "./ui/moving-border";
 import {
   Card,
   CardContent,
@@ -92,10 +93,12 @@ const Blog7 = ({
           <p className="text-muted-foreground mb-8 md:text-base lg:max-w-2xl lg:text-lg">
             {description}
           </p>
-          <Button variant="link" className="w-full sm:w-auto" asChild>
-            <a href={buttonUrl} target="_blank">
-              {buttonText}
-              <ArrowRight className="ml-2 size-4" />
+          <Button variant="link" className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800">
+            <a href={buttonUrl} target="_blank" className="space-y-1">
+              <span className="flex justify-center">{buttonText}</span>
+              <div className="flex justify-center item-center">
+                    <ArrowRight className="size-5 flex" />
+              </div>
             </a>
           </Button>
         </div>

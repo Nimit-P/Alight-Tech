@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { useMotionValue, motion, useMotionTemplate } from "motion/react";
 import React from "react";
+import { Button } from "./moving-border";
 
 export const HeroHighlight = ({
   children,
@@ -41,7 +42,7 @@ export const HeroHighlight = ({
   return (
     <div
       className={cn(
-        "group relative flex h-[40rem] w-full items-center justify-center bg-white dark:bg-black",
+        "group relative flex h-[35rem] w-full items-center justify-center bg-white dark:bg-black",
         containerClassName,
       )}
       onMouseMove={handleMouseMove}
@@ -99,7 +100,16 @@ export const HeroHighlight = ({
         }}
       />
 
-      <div className={cn("relative z-20", className)}>{children}</div>
+      <div className={cn("relative z-20", className)}>{children}
+        <div className="flex justify-center py-6">
+              <Button
+              borderRadius="1.75rem"
+              className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"      >
+              Learn More
+            </Button>
+        </div>
+      </div>
+
     </div>
   );
 };
