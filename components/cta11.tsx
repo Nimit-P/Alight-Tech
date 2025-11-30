@@ -10,7 +10,7 @@ interface Cta11Props {
 const Cta11 = ({
   heading = "Career with Alight Technologies",
   description = "We always keep our 'GROW MODE' on! We seek young and powerful individuals who are equally excited and curious to break the barriers of stagnancy and adopt novel methodologies!",
-  imageSrc = "logo.png",
+  imageSrc = "Logo.png",
   imageAlt = "Logo",
 }: Cta11Props) => {
   return (
