@@ -26,7 +26,7 @@ interface Footer2Props {
 
 const Footer2 = ({
   logo = {
-    src: "Logo.png",
+    src: "/Logo.png",
     alt: "Alightech",
     title: "",
     url: "#",
