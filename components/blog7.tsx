@@ -1,8 +1,9 @@
 import { ArrowRight } from "lucide-react";
-
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 //import { Button } from "@/components/ui/button";
 import { Button } from "./ui/moving-border";
+import { HeroHighlight } from "./ui/about-us";
 import {
   Card,
   CardContent,
@@ -45,7 +46,7 @@ const Blog7 = ({
       author: "Sarah Chen",
       published: "1 Jan 2024",
       url: "#",
-      image: "image-2.jpg",
+      image: "/image-2.jpg",
     },
     {
       id: "cm",
@@ -56,7 +57,7 @@ const Blog7 = ({
       author: "Marcus Rodriguez",
       published: "1 Jan 2024",
       url: "#",
-      image: "cloud2.jpg",
+      image: "/cloud2.jpg",
     },
     {
       id: "am",
@@ -67,7 +68,7 @@ const Blog7 = ({
       author: "Emma Thompson",
       published: "1 Jan 2024",
       url: "#",
-      image: "image-5.jpg",
+      image: "/image-5.jpg",
     },
     {
       id: "ps",
@@ -78,7 +79,7 @@ const Blog7 = ({
       author: "Emma Thompson",
       published: "1 Jan 2024",
       url: "#",
-      image: "image-1.jpg",
+      image: "/image-1.jpg",
     },
   ],
 }: Blog7Props) => {
@@ -102,48 +103,45 @@ const Blog7 = ({
             </a>
           </Button>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {posts.map((post) => (
-            <Card
-              key={post.id}
-              className="grid grid-rows-[auto_auto_1fr_auto] overflow-hidden pt-0"
-            >
-              <div className="aspect-16/9 w-full">
-                <a
-                  href={post.url}
-                  target="_blank"
-                  className="fade-in transition-opacity duration-200 hover:opacity-70"
-                >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </a>
-              </div>
-              <CardHeader>
-                <h3 className="text-lg font-semibold hover:underline md:text-xl">
-                  <a href={post.url} target="_blank">
-                    {post.title}
-                  </a>
-                </h3>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{post.summary}</p>
-              </CardContent>
-              <CardFooter>
-                <a
-                  href={post.url}
-                  target="_blank"
-                  className="text-foreground flex items-center hover:underline"
-                >
-                  Learn more
-                  <ArrowRight className="ml-2 size-4" />
-                </a>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+  {posts.map((post) => (
+    <Card key={post.id} className="grid grid-rows-[auto_auto_1fr_auto] overflow-hidden pt-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg rounded-lg">
+      <div className="w-full overflow-hidden rounded-t-lg">
+        <a href={post.url} target="_blank" rel="noreferrer" className="block">
+          <div className="aspect-[16/9] w-full relative">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style={{ objectFit: "cover", objectPosition: "center" }}
+            />
+          </div>
+        </a>
+      </div>
+
+      <CardHeader>
+        <h3 className="text-lg font-semibold hover:underline md:text-xl">
+          <a href={post.url} target="_blank" rel="noreferrer">
+            {post.title}
+          </a>
+        </h3>
+      </CardHeader>
+
+      <CardContent>
+        <p className="text-muted-foreground">{post.summary}</p>
+      </CardContent>
+
+      <CardFooter>
+        <a href={post.url} target="_blank" rel="noreferrer" className="text-foreground flex items-center hover:underline">
+          Learn more
+          <ArrowRight className="ml-2 size-4" />
+        </a>
+      </CardFooter>
+    </Card>
+  ))}
+</div>
+
       </div>
     </section>
   );

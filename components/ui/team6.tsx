@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-
+import { HighlightTitle } from "../highlight-title";
 export function Team6() {
 const team = [
   {
@@ -31,9 +31,9 @@ const team = [
     <section className="py-24">
       <div className="container mx-auto flex flex-col items-center text-center gap-10 px-6">
         
-        <h2 className="max-w-2xl text-3xl font-semibold md:text-4xl lg:text-5xl">
-          Our Team
-        </h2>
+<HighlightTitle className="text-center mb-10">
+   Our Team
+</HighlightTitle>
 
         {/* Heading */}
         <h1 className="max-w-2xl text-3xl font-semibold md:text-4xl lg:text-5xl">
