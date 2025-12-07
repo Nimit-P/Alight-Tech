@@ -1,5 +1,8 @@
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+"use client";
 import { usePathname } from "next/navigation";
+const pathname = usePathname();
+  
+import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
 import {
   Accordion,
@@ -158,7 +161,7 @@ const Navbar1 = ({
                   <a
                     href={item.url}
                     className={`
-                      relative text-[16px] font-medium transition
+                   yyb b    relative text-[16px] font-medium transition
                       ${pathname === item.url ? "text-blue-600" : "text-gray-700 dark:text-gray-300"}
                     `}
                   >
@@ -224,8 +227,7 @@ const Navbar1 = ({
     {/* Close Button */}
     <SheetTrigger asChild>
       <button className="p-2 text-gray-500 hover:text-gray-900">
-        
-      </button>
+              </button>
     </SheetTrigger>
   </div>
 
