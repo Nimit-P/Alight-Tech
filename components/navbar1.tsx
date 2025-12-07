@@ -1,4 +1,5 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 import {
   Accordion,
@@ -121,37 +122,73 @@ const Navbar1 = ({
       url: "#",
     },
   ],
-/*  auth = {
+  auth = {
     login: { title: "Login", url: "#" },
     signup: { title: "Sign up", url: "#" },
-  },*/
+  },
 }: Navbar1Props) => {
+  const pathname = usePathname();
+
   return (
-    <section className="py-4">
+    <section className="py-2">
       <div className="container">
-        {/* Desktop Menu */}
-        <nav className="hidden items-center justify-between lg:flex">
-          <div className="flex items-center gap-6">
-            {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-              <img
-                src={logo.src}
-                className="max-h-8 dark:invert"
-                alt={logo.alt}
-              />
-              <span className="text-lg font-semibold tracking-tighter">
-                {logo.title}
-              </span>
-            </a>
-            <div className="flex items-center">
-              <NavigationMenu>
-                <NavigationMenuList>
-                  {menu.map((item) => renderMenuItem(item))}
-                </NavigationMenuList>
-              </NavigationMenu>
-            </div>
-          </div>
-        </nav>
+              {/* Desktop Menu */}
+              <nav className="hidden lg:flex items-center justify-between py-4 px-6">
+
+                {/* LEFT SIDE - LOGO (shifted left with px-6 padding) */}
+                <a href={logo.url} className="flex items-center gap-2">
+                  <img
+                    src={logo.src}
+                    className="h-14 w-auto dark:invert"
+                    alt={logo.alt}
+                  />
+                  <span className="text-lg font-bold tracking-tight">
+                    {logo.title}
+                  </span>
+                </a>
+
+          {/* RIGHT SIDE — MENU + BUTTON */}
+            <div className="flex items-center gap-10">
+
+          <NavigationMenu>
+            <NavigationMenuList className="flex items-center gap-6">
+
+              {menu.map((item) => (
+                <NavigationMenuItem key={item.title}>
+                  <a
+                    href={item.url}
+                    className={`
+                      relative text-[16px] font-medium transition
+                      ${pathname === item.url ? "text-blue-600" : "text-gray-700 dark:text-gray-300"}
+                    `}
+                  >
+                    {/* MENU TEXT */}
+                    {item.title}
+
+                    {/* UNDERLINE EFFECT */}
+                      <span
+                        className={`
+                          absolute left-0 -bottom-1 h-[2px] w-full 
+                          bg-gradient-to-r from-purple-500 via-sky-500 to-cyan-400
+                          rounded-full transition-all duration-300
+                          ${pathname === item.url ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}
+                          group-hover:opacity-100 group-hover:scale-x-100
+                        `}
+                      ></span>
+                  </a>
+                </NavigationMenuItem>
+              ))}
+
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          {/* CTA BUTTON */}
+          <Button className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md">
+            LET’S TALK
+          </Button>
+        </div>
+
+      </nav>
 
         {/* Mobile Menu */}
         <div className="block lg:hidden">
@@ -193,6 +230,7 @@ const Navbar1 = ({
                 </div>
               </SheetContent>
             </Sheet>
+            
           </div>
         </div>
       </div>

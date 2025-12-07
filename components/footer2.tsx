@@ -1,4 +1,5 @@
 import { Logo, LogoImage, LogoText } from "@/components/logo";
+import Image from "next/image";
 
 interface MenuItem {
   title: string;
@@ -79,21 +80,13 @@ const Footer2 = ({
   ],
 }: Footer2Props) => {
   return (
-    <section className="py-32">
-      <div className="container">
+    <section className="py-10 ">
+      <div className="container mx-auto">
         <footer>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
             <div className="col-span-2 mb-8 lg:mb-0">
-              <div className="flex items-center gap-2 lg:justify-start">
-                <Logo url={logo.url}>
-                  <LogoImage
-                    src={logo.src}
-                    alt={logo.alt}
-                    title={logo.title}
-                    className="h-10 dark:invert"
-                  />
-                  <LogoText className="text-xl">{logo.title}</LogoText>
-                </Logo>
+              <div className="flex items-center justify-center max-h-50 h-full">
+                <Image src={logo.src} alt="logo-image" width={350} height={350} />
               </div>
               <p className="mt-4 font-bold">{tagline}</p>
             </div>
