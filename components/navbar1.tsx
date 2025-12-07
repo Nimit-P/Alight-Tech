@@ -144,7 +144,7 @@ const Navbar1 = ({
                   />
                   <span className="text-lg font-bold tracking-tight">
                     {logo.title}
-                  </span>
+                    </span>
                 </a>
 
           {/* RIGHT SIDE — MENU + BUTTON */}
@@ -201,38 +201,52 @@ const Navbar1 = ({
                 alt={logo.alt}
               />
             </a>
+            
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
-                      <img
-                        src={logo.src}
-                        className="max-h-8 dark:invert"
-                        alt={logo.alt}
-                      />
-                    </a>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="flex w-full flex-col gap-4"
-                  >
-                    {menu.map((item) => renderMobileMenuItem(item))}
-                  </Accordion>
-                </div>
-              </SheetContent>
-            </Sheet>
             
-          </div>
-        </div>
+<SheetContent className="overflow-y-auto p-0">
+
+  {/* Mobile Logo Header */}
+  <div className="flex items-center justify-between px-4 py-4 border-b bg-white">
+    <a href={logo.url} className="flex items-center gap-2">
+      <img
+        src={logo.src}
+        className="h-8 w-auto"
+        alt={logo.alt}
+      />
+    </a>
+
+    {/* Close Button */}
+    <SheetTrigger asChild>
+      <button className="p-2 text-gray-500 hover:text-gray-900">
+        
+      </button>
+    </SheetTrigger>
+  </div>
+
+  <SheetHeader>
+    <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+  </SheetHeader>
+
+  <div className="flex flex-col gap-6 p-4">
+    <Accordion
+      type="single"
+      collapsible
+      className="flex w-full flex-col gap-4"
+    >
+      {menu.map((item) => renderMobileMenuItem(item))}
+    </Accordion>
+  </div>
+</SheetContent>
+
+    </Sheet>
+  </div>
+</div>
       </div>
     </section>
   );

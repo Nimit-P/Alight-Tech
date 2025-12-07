@@ -136,3 +136,33 @@
     }
   }
 }
+/* Nav link hover underline + active blue indicator */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #005bff, #3b82f6);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE PAGE INDICATOR */
+.nav-link-active {
+  color: #005bff !important;
+}
+
+.nav-link-active::after {
+  width: 100%;
+}
