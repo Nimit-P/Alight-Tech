@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 import React from "react";
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import { Button } from "./ui/moving-border";
@@ -29,4 +29,4 @@ export default function Hero() {
       </div>
     </div>
   );
-}
+}*/

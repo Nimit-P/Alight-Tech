@@ -1,6 +1,6 @@
 "use client";
 
-import Hero from "@/components/hero";
+import Hero from "@/components/herosection";
 import { Navbar1 } from "@/components/navbar1";
 import { HeroHighlight , Highlight } from "@/components/ui/about-us";
 import { Blog7 } from "@/components/blog7";
