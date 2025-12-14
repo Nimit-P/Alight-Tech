@@ -137,3 +137,9 @@ const Blog7 = ({
           ))}
         </div>
         )
+      </div>
+    </section>
+  );
+};
+
+export { Blog7 };

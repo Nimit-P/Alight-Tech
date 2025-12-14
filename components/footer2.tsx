@@ -33,11 +33,7 @@ const Footer2 = ({
     url: "#",
   },
   tagline = "",
-<<<<<<< HEAD
   menuItems = [
-=======
-  menuItems =  [
->>>>>>> 79b2372bfb0972ee2ed013de97f9471e3de15c98
     {
       title: "Product",
       links: [
@@ -112,21 +108,17 @@ const Footer2 = ({
             ))}
           </div>
 
-<<<<<<< HEAD
-  <div className="text-muted-foreground mt-24 flex flex-col justify-between gap-4 border-t pt-8 text-sm font-medium md:flex-row md:items-cente">
-=======
           <div className="text-muted-foreground mt-24 flex flex-col justify-between gap-4 border-t pt-8 text-sm font-medium md:flex-row md:items-center">
->>>>>>> 79b2372bfb0972ee2ed013de97f9471e3de15c98
-      <p>{copyright}</p>
-      <ul className="flex gap-4">
-        {bottomLinks.map((link, linkIdx) => (
-          <li key={linkIdx} className="hover:text-primary underline">
-            <a href={link.url}>{link.text}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </footer>
+            <p>{copyright}</p>
+            <ul className="flex gap-4">
+              {bottomLinks.map((link, linkIdx) => (
+                <li key={linkIdx} className="hover:text-primary underline">
+                  <a href={link.url}>{link.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </footer>
       </div >
     </section >
   );
