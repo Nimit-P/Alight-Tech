@@ -89,7 +89,7 @@ const Blog7 = ({
           <h2 className="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
             {heading}
           </h2>
-          <p className="text-muted-foreground mb-8 md:text-base lg:max-w-2xl lg:text-lg">
+          <p className="text-muted-foreground mb-8 md:text-base lg:max-w-2xl lg:text-lg border">
             {description}
           </p>
           <button className="flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors mt- text-lg font-medium group">
@@ -136,10 +136,4 @@ const Blog7 = ({
             </Card>
           ))}
         </div>
-
-      </div>
-    </section>
-  );
-};
-
-export { Blog7 };
+        )
