@@ -3,7 +3,7 @@
 import Hero from "@/components/herosection";
 import { Navbar1 } from "@/components/navbar1";
 import Aboutus from "@/components/About-us";
-import { Blog7 } from "@/components/blog7";
+import Services from "@/components/services";
 import { Badge } from "@/components/ui/badge";
 import TeamSection from "@/components/ui/team-section";
 import CareerSection from "@/components/Career-section";
@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <Navbar1 />
       <Hero />
-      <Blog7 />
+      <Services />
       <Aboutus />
       <TeamSection />
       <CareerSection />
