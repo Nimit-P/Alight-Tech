@@ -83,12 +83,82 @@ const Services = ({
   ],
 }: servicesProps) => {
   return (
-    <section className="py-24">
+    <section className="py-25">
       <div className="container mx-auto flex flex-col items-center gap-16 lg:px-16">
-        {/* content unchanged */}
+        <div className="flex flex-col items-center text-center">
+          <h2 className="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
+            {heading}
+          </h2>
+
+          <p className="text-muted-foreground mb-8 md:text-base lg:max-w-2xl lg:text-lg">
+            {description}
+          </p>
+
+          <button className="flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors mt- text-lg font-medium group">
+            Learn More
+            <span className="transform group-hover:translate-x-1 transition-transform">
+              →
+            </span>
+          </button>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {posts.map((post) => (
+            <Card
+              key={post.id}
+              className="grid grid-rows-[auto_auto_1fr_auto] overflow-hidden pt-0 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg rounded-lg"
+            >
+              <div className="w-full overflow-hidden rounded-t-lg">
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block"
+                >
+                  <div className="aspect-[16/9] w-full relative">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <CardHeader>
+                <h3 className="text-lg font-semibold hover:underline md:text-xl">
+                  <a href={post.url} target="_blank" rel="noreferrer">
+                    {post.title}
+                  </a>
+                </h3>
+              </CardHeader>
+
+              <CardContent>
+                <p className="text-muted-foreground">{post.summary}</p>
+              </CardContent>
+
+              <CardFooter>
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground flex items-center hover:underline"
+                >
+                  Learn more
+                  <ArrowRight className="ml-2 size-4" />
+                </a>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default Services;
+export { Services };
