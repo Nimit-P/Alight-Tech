@@ -1,6 +1,7 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { BookOpen, Users, Target, Building2, Database, Cloud, Layers3, Briefcase, Menu } from "lucide-react";
 
 import {
@@ -55,63 +56,64 @@ const Navbar1 = ({
     { title: "Home", url: "/" },
     {
       title: "About Us",
-      url: "#",
+      url: "/about-us",
       items: [
         {
           title: "Introduction",
           icon: <BookOpen className="size-5 text-blue-500" />,
-          url: "#",
+          url: "/about-us",
         },
         {
           title: "Team",
           icon: <Users className="size-5 text-indigo-500" />,
-          url: "#",
+          url: "/about-us#team",
         },
         {
           title: "Vision",
           icon: <Target className="size-5 text-red-500" />,
-          url: "#",
+          url: "/about-us#vision",
         },
         {
           title: "Clients Industries",
           icon: <Building2 className="size-5 text-orange-500" />,
-          url: "#",
+          url: "/about-us#clients",
         },
       ],
     },
 
     {
       title: "Services",
-      url: "#",
+      url: "/services",
       items: [
         {
           title: "Data Asset Modernization",
           icon: <Database className="size-5 text-purple-500" />,
-          url: "#",
+          url: "/services/data-asset-modernization",
         },
         {
           title: "Cloud Migration",
           icon: <Cloud className="size-5 text-sky-500" />,
-          url: "#",
+          url: "/services/cloud-migration",
         },
         {
           title: "Application Modernization",
           icon: <Layers3 className="size-5 text-green-500" />,
-          url: "#",
+          url: "/services/application-modernization",
         },
         {
           title: "Professional Services",
           icon: <Briefcase className="size-5 text-rose-500" />,
-          url: "#",
+          url: "/services/professional-services",
         },
       ],
     },
 
-    { title: "Careers", url: "#" },
-    { title: "Contact Us", url: "#" },
+    { title: "Careers", url: "/careers" },
+    { title: "Contact Us", url: "/contact-us" },
   ],
 }: Navbar1Props) => {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <section className="py-2">
@@ -131,13 +133,15 @@ const Navbar1 = ({
 
             <NavigationMenu>
               <NavigationMenuList className="flex items-center gap-6">
-                {menu.map((item) => renderMenuItem(item, pathname))}
+                {menu.map((item) => renderMenuItem(item, pathname, router))}
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md">
-              LET’S TALK
-            </Button>
+            <Link href="/contact-us">
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md">
+                LET’S TALK
+              </Button>
+            </Link>
           </div>
         </nav>
 
@@ -150,7 +154,7 @@ const Navbar1 = ({
             </a>
 
             <Sheet>
-              <SheetTrigger asChild>
+              <SheetTrigger asChild suppressHydrationWarning>
                 <Button variant="outline" size="icon">
                   <Menu className="size-4" />
                 </Button>
@@ -176,13 +180,19 @@ const Navbar1 = ({
 
 /* ================= HELPERS ================= */
 
-const renderMenuItem = (item: MenuItem, pathname: string) => {
+/* ================= HELPERS (Inside Component to access router) ================= */
+
+const renderMenuItem = (item: MenuItem, pathname: string, router: any) => {
   const isActive = pathname === item.url;
 
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title} className="relative group">
-        <NavigationMenuTrigger className="bg-transparent px-0 text-[16px] font-medium">
+        <NavigationMenuTrigger
+          className="bg-transparent px-0 text-[16px] font-medium"
+          suppressHydrationWarning
+          onClick={() => router.push(item.url)}
+        >
           {item.title}
           <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-gradient-to-r from-purple-500 via-sky-500 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform" />
         </NavigationMenuTrigger>
@@ -218,7 +228,13 @@ const renderMobileMenuItem = (item: MenuItem) => {
     return (
       <AccordionItem key={item.title} value={item.title}>
         <AccordionTrigger>{item.title}</AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="space-y-2">
+          <Link
+            href={item.url}
+            className="block py-2 px-3 text-blue-600 font-semibold border-b border-gray-100 dark:border-gray-800"
+          >
+            View All {item.title}
+          </Link>
           {item.items.map((sub) => (
             <SubMenuLink key={sub.title} item={sub} />
           ))}
@@ -228,9 +244,9 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="block font-semibold">
+    <Link key={item.title} href={item.url} className="block font-semibold">
       {item.title}
-    </a>
+    </Link>
   );
 };
 

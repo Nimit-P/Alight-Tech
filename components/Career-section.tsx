@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Briefcase, TrendingUp, Users, Zap, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const CareerSection = ({
-  heading = "Career with Alight Technologies",
+  heading = "Career with Insightsoftware",
   description = "We always keep our 'GROW MODE' on! We seek young and powerful individuals who are equally excited and curious to break the barriers of stagnancy and adopt novel methodologies!",
 }) => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -62,10 +63,12 @@ const CareerSection = ({
               ))}
             </div>
 
-            <button className="group mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105">
-              Explore Opportunities
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <Link href="/careers">
+              <button className="group mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105">
+                Explore Opportunities
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </Link>
           </div>
 
           {/* Right Logo Box with Animation */}

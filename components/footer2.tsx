@@ -35,41 +35,28 @@ const Footer2 = ({
   tagline = "",
   menuItems = [
     {
-      title: "Product",
+      title: "Services",
       links: [
-        { text: "Overview", url: "#" },
-        { text: "Pricing", url: "#" },
-        { text: "Marketplace", url: "#" },
-        { text: "Features", url: "#" },
-        { text: "Integrations", url: "#" },
-        { text: "Pricing", url: "#" },
+        { text: "Data Asset Modernization", url: "/services/data-asset-modernization" },
+        { text: "Cloud Migration", url: "/services/cloud-migration" },
+        { text: "Application Modernization", url: "/services/application-modernization" },
+        { text: "Professional Services", url: "/services/professional-services" },
       ],
     },
     {
       title: "Company",
       links: [
-        { text: "About", url: "#" },
-        { text: "Team", url: "#" },
-        { text: "Blog", url: "#" },
-        { text: "Careers", url: "#" },
-        { text: "Contact", url: "#" },
-        { text: "Privacy", url: "#" },
+        { text: "About Us", url: "/about-us" },
+        { text: "Careers", url: "/careers" },
+        { text: "Contact Us", url: "/contact-us" },
       ],
     },
     {
-      title: "Resources",
+      title: "Legal",
       links: [
-        { text: "Help", url: "#" },
-        { text: "Sales", url: "#" },
-        { text: "Advertise", url: "#" },
-      ],
-    },
-    {
-      title: "Social",
-      links: [
-        { text: "Twitter", url: "#" },
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
+        { text: "Privacy Policy", url: "#" },
+        { text: "Terms of Service", url: "#" },
+        { text: "Cookie Policy", url: "#" },
       ],
     },
   ],
